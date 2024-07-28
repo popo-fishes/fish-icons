@@ -8,7 +8,7 @@
 
 <p align="center">Fish Icons - 图标集合的React组件</p>
 
-### 安装
+## 安装
 
 ```shell
  # NPM
@@ -19,12 +19,9 @@ $ yarn add fish-icons
 $ pnpm install fish-icons
 ```
 
-### 使用方法
+## 基本用法
 
 ```ts
-
-// 基本用法
-
 import React from 'react';
 
 import Icon, { CloseIcon } from 'fish-icons';
@@ -49,4 +46,27 @@ const App: React.FC = () => (
    </Icon>
   </>
 );
+```
+
+## 使用 iconfont.cn 的用户
+
+```ts
+import React from 'react';
+import { createFromIconfont  } from 'fish-icons';
+
+const IconFont = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+});
+
+const App: React.FC = () => (
+  <>
+   /**
+    * 使用createFromIconfont时: SVG图标自带颜色
+    * ：某些SVG图标可能已经自带颜色这会导致您在CSS中设置的样式无效
+    */
+   <IconFont type="ccc-fangda" size="22px" color="red" />
+  </>
+);
+
+export default App;
 ```
