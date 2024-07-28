@@ -6,17 +6,17 @@
   <img width="300px" height="250px" src="https://cdn.yupaowang.com/yupao_pc/images/pl/fish-bubble-design-logo.png">
 </p>
 
-<p align="center">fish-bubble-icons - 用于存储 fish bubble 图标资源的主包</p>
+<p align="center">Fish Icons - 图标集合的React组件</p>
 
 ### 安装
 
 ```shell
  # NPM
-$ npm install @fish-bubble/icons
+$ npm install fish-icons
 # Yarn
-$ yarn add @fish-bubble/icons
+$ yarn add fish-icons
 # pnpm
-$ pnpm install @fish-bubble/icons
+$ pnpm install fish-icons
 ```
 
 ### 使用方法
@@ -24,7 +24,7 @@ $ pnpm install @fish-bubble/icons
 ```shell
 
  <script setup lang="ts">
-   import Icon, { Close as CloseIcon, createFromIconfont } from "@fish-bubble/icons";
+   import Icon, { Close as CloseIcon, createFromIconfont } from "fish-icons";
    // 如果你是使用 iconfont.cn
    /**
     * 对于使用 iconfont.cn 的用户，通过设置 createFromIconfont 方法参数对象中的 scriptUrl 字段，
@@ -40,7 +40,7 @@ $ pnpm install @fish-bubble/icons
    // 使用createFromIconfont时: SVG图标自带颜色：某些SVG图标可能已经自带颜色，这会导致您在CSS中设置的样式无效
    <IconFont type="yp-fangda" size="22px" color="red" />
 
-   // @fish-bubble/icons自带的图标
+   // fish-icons自带的图标
    <CloseIcon size="20px" color="red" class="custom-class" />
  </template>
 

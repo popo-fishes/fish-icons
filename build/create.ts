@@ -56,6 +56,7 @@ async function createVueComponent(file: string) {
 
   const react = await formatCode(
     `
+    import React from 'react'
     import { IconProps } from '../icon/type'
     import Icon from '../icon'
 

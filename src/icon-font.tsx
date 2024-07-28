@@ -2,7 +2,7 @@
  * @Date: 2024-01-13 17:18:17
  * @Description: Modify here please
  */
-import { h } from "react";
+import React from "react";
 import Icon from "./icon";
 import { IconProps } from "./icon/type";
 
@@ -39,7 +39,7 @@ export default function create(
   options: {
     scriptUrl?: string | string[];
   } = {}
-): FunctionalComponent<IconFontProps> {
+): React.FC<IconFontProps> {
   const { scriptUrl } = options;
 
   /**
@@ -57,23 +57,22 @@ export default function create(
     }
   }
 
-  const Iconfont = (props: IconFontProps, context: any) => {
-    const { attrs, slots } = context;
-    const { type, ...restProps } = { ...props, ...attrs } as any;
-    const children = slots.default && slots.default?.();
+  const Iconfont: React.FC<IconFontProps> = (props) => {
+    const { type, children, ...restProps } = props;
+
     // children > type
-    let content = null;
-
-    if (type) {
-      content = h("svg", { width: "1em", height: "1em", fill: "currentColor" }, [h("use", { "xlink:href": `#${type}` })]);
+    let content: React.ReactNode = null;
+    if (props.type) {
+      content = (
+        <svg {...{ width: "1em", height: "1em", fill: "currentColor" }}>
+          <use xlinkHref={`#${type}`} />
+        </svg>
+      );
     }
-
-    if (children && children.length) {
+    if (children) {
       content = children;
     }
-
-    return h(Icon, { ...restProps }, () => content);
+    return <Icon {...restProps}>{content}</Icon>;
   };
-
   return Iconfont;
 }

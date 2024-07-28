@@ -5,7 +5,6 @@
 import path from "node:path";
 import type { BuildOptions, Format } from "esbuild";
 import { build } from "esbuild";
-import vue from "unplugin-vue/esbuild";
 import { emptyDir } from "fs-extra";
 
 import { pathOutput, pathSrc } from "./paths";
@@ -19,17 +18,7 @@ const buildBundle = () => {
       target: "es2018",
       // https://esbuild.github.io/api/#platform
       platform: "neutral",
-      plugins: [
-        vue({
-          isProduction: true,
-          sourceMap: false,
-          // 在 Vue 模板中，静态节点是指在组件渲染期间不需要变化内容的节点。
-          // 由于这些节点的内容不会随着渲染而改变，它们可能会被 Vue 编译器优化为静态内容
-          //，从而提高组件的性能。在一些情况下，静态节点的提升可能会产生意外的行为，例如跨越插槽边界的情况。
-          // 此时，你可以使用 hoistStatic 选项来控制静态节点的提升行为。
-          template: { compilerOptions: { hoistStatic: false } }
-        })
-      ],
+      plugins: [],
       // https://esbuild.github.io/api/#bundle
       bundle: true,
       format,
@@ -37,7 +26,7 @@ const buildBundle = () => {
       // https://esbuild.github.io/api/#minify
       minifySyntax: true,
       // https://esbuild.github.io/api/#external
-      external: ["vue"],
+      external: ["react"],
       outdir: pathOutput
     };
 
