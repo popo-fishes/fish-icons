@@ -36,7 +36,6 @@ $ pnpm install fish-icons
  </script>
 
  <template>
-   // 如果你是使用 iconfont.cn
    // 使用createFromIconfont时: SVG图标自带颜色：某些SVG图标可能已经自带颜色，这会导致您在CSS中设置的样式无效
    <IconFont type="yp-fangda" size="22px" color="red" />
 
