@@ -7,7 +7,7 @@ import classNames from "classnames";
 import { IconProps } from "./type";
 
 const Icon: React.FC<IconProps> = (props) => {
-  const { className, children } = props;
+  const { className, children, style, onClick } = props;
   const iconStyle = useMemo(() => {
     const _style = {
       display: "inline-flex",
@@ -22,10 +22,10 @@ const Icon: React.FC<IconProps> = (props) => {
       _style[`color`] = props.color;
     }
     return _style;
-  }, [props]);
+  }, [props?.size, props?.color]);
 
   return (
-    <span style={iconStyle} className={classNames("fish-icon", className)} role="img">
+    <span style={{ ...iconStyle, ...style }} onClick={onClick} className={classNames("fish-icon", className)} role="img">
       {children}
     </span>
   );

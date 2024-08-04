@@ -11,5 +11,7 @@ export interface IconProps {
   color?: string;
   // 自定义样式
   className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
+  onClick?: () => void;
 }
