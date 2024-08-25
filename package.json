@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fish-popo/fish-icons.git"
+    "url": "git+https://github.com/popo-fishes/fish-icons.git"
   },
   "publishConfig": {
     "access": "public"
